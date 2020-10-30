@@ -27,3 +27,6 @@ Route::get('/delete-category/{category_id}', 'CategoryController@delete_category
 Route::get('/unactive-category/{category_id}', 'CategoryController@unactive_category');
 Route::get('/active-category/{category_id}', 'CategoryController@active_category');
 
+//product
+
+
