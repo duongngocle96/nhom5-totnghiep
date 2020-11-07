@@ -38,3 +38,10 @@ Route::get('/delete-manufacture/{manufacture_id}', 'ManufactureController@delete
 Route::get('/unactive-manufacture/{manufacture_id}', 'ManufactureController@unactive_manufacture');
 Route::get('/active-manufacture/{manufacture_id}', 'ManufactureController@active_manufacture');
 
+// Slider route are here
+Route::get('/all-slider','SliderController@all_slider');
+Route::get('/add-slider','SliderController@index');
+Route::post('/save-slider','SliderController@save_slider');
+Route::get('/delete-slider/{slider_id}', 'SliderController@delete_slider');
+Route::get('/unactive-slider/{slider_id}', 'SliderController@unactive_slider');
+Route::get('/active-slider/{slider_id}', 'SliderController@active_slider');
