@@ -81,4 +81,33 @@ class ProductController extends Controller
         Session::put('messege','product added successfully without image!!');
         return Redirect::to('/add-product');
     }
+ public function unactive_product($product_id){
+        DB::table('tbl_products')
+        ->where('product_id', $product_id)
+        ->update(['publication_status' => 0]);
+        Session::put('messege','Product Unactive successfully!!');
+        return Redirect::to('/all-product');
+    }
+    public function active_product($product_id){
+        DB::table('tbl_products')
+        ->where('product_id', $product_id)
+        ->update(['publication_status' => 1]);
+        Session::put('messege','Product Actived successfully!!');
+        return Redirect::to('/all-product');
+    }
+    public function delete_product($product_id){
+        DB::table('tbl_products')
+        ->where('product_id',$product_id)
+        ->delete();
+        Session::get('messege','Product Deleted seccessfully !');
+        return Redirect::to('/all-product');
+    }
+    public function AdminAuthCheck(){
+        $admin_id=Session::get('admin_id');
+        if($admin_id){
+            return;
+        }else{
+            return Redirect::to('/admin')->send();
+        }
+    }
 }
